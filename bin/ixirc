@@ -1,0 +1,47 @@
+#!/usr/bin/env babel-node
+
+const cliff = require("cliff");
+const minimist = require("minimist")(process.argv.slice(2));
+const http = require("http");
+
+(async function()
+{
+	let chan = minimist.c ? minimist.c : 92;
+	let q = minimist.q;
+
+	let api = "http://ixirc.com/api/?q=" + q + "&cid=" + chan;
+
+	let options = {
+		host: "ixirc.com",
+		path: "/api/?q=" + q + "&cid=" + chan
+	};
+
+	http.get(options, (res) =>
+	{
+		let data = "";
+		res.on("data", (chunk) =>
+		{
+			data += chunk;
+		});
+
+		res.on("end", () =>
+		{
+			skriv_ut(JSON.parse(data));
+		});
+	});
+	
+})();
+
+function skriv_ut(data)
+{
+	let lines = [];
+
+	lines.push(["Name", "Network", "Channel", "User", "Pack", "Gets" ,"Size", "Posted", "Last Activity"]);
+
+	for(let result of data.results)
+	{
+		lines.push([result.name, result.naddr, result.cname, result.uname, result.n, result.gets, result.szf, result.agef, result.lastf]);
+	}
+
+	console.log(cliff.stringifyRows(lines));
+}
