@@ -5,7 +5,7 @@
   "main": "lib/ixirc.js",
   "scripts": {
     "test": "echo \"Error: no such thing\" && exit 1",
-    "preinstall": "bash scripts/preinstall.sh"
+    "postinstall": "bash scripts/postinstall.sh"
   },
   "bin": "./bin/cli.js",
   "author": {
