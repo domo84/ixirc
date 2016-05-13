@@ -2,37 +2,29 @@
 
 const cliff = require("cliff");
 const minimist = require("minimist")(process.argv.slice(2));
-const http = require("http");
+const ixIRC = require("../lib/ixirc");
 
 (async function()
 {
-	let chan = minimist.c ? minimist.c : 92;
-	let q = minimist.q;
-
-	let api = "http://ixirc.com/api/?q=" + q + "&cid=" + chan;
-
-	let options = {
-		host: "ixirc.com",
-		path: "/api/?q=" + q + "&cid=" + chan
+	let args = {
+		chan: minimist.c ? minimist.c : 92,
+		q: minimist.q
 	};
 
-	http.get(options, (res) =>
-	{
-		let data = "";
-		res.on("data", (chunk) =>
-		{
-			data += chunk;
-		});
+	let client = new ixIRC();
 
-		res.on("end", () =>
-		{
-			skriv_ut(JSON.parse(data));
-		});
-	});
-	
+	try
+	{
+		let result = await client.search(args);
+		print_result(result);
+	}
+	catch(e)
+	{
+		console.error(`Unable to search: ${e}`);
+	}
 })();
 
-function skriv_ut(data)
+function print_result(data)
 {
 	let lines = [];
 
