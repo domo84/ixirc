@@ -4,18 +4,20 @@
   "description": "Node module for ixIRC API. Both lib and CLI",
   "main": "lib/ixirc.js",
   "scripts": {
-    "test": "echo \"Error: no such thing\" && exit 1"
+    "test": "echo \"Error: no such thing\" && exit 1",
+    "preinstall": "scripts/preinstall.sh"
   },
-  "bin": "./bin/ixirc",
+  "bin": "./bin/cli.js",
   "author": {
     "name": "Magnus Hellman",
     "email": "magnus.hellman@gmail.com",
-	"url": "https://github.com/domolicious"
+    "url": "https://github.com/domolicious"
   },
   "repository": "domolicious/ixirc",
   "readme": "README.md",
   "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
+    "babel-cli": "^6.8.0",
     "babel-plugin-transform-strict-mode": "^6.5.2",
     "babel-preset-stage-2": "^6.5.0",
     "cliff": "^0.1.10",
