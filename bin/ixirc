@@ -6,6 +6,12 @@ const ixIRC = require("../lib/ixirc");
 
 (async function()
 {
+	if(!minimist.q || minimist.h || minimist.help)
+	{
+		print_help();
+		return;
+	}
+
 	let args = {
 		chan: minimist.c ? minimist.c : 92,
 		q: minimist.q
@@ -36,4 +42,17 @@ function print_result(data)
 	}
 
 	console.log(cliff.stringifyRows(lines));
+}
+
+function print_help()
+{
+	let lines = [];
+
+	lines.push(["USAGE", "ixirq -q <query> [-c <channel id>]", "(default: -c 92)"]);
+	lines.push(["NOTE", "use the plus (+) sign instead of space"]);
+	lines.push(["EXAMPLE", "ixirc -q family+guy+s01e01+720p -c 105"]);
+
+	console.log("");
+	console.log(cliff.stringifyRows(lines));
+	console.log("");
 }
