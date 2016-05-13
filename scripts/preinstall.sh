@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 bin=$(pwd)/node_modules/.bin/babel-node
 out="bin/cli.js"
 
