@@ -4,11 +4,9 @@
   "description": "Node module for ixIRC API. Both lib and CLI",
   "main": "lib/ixirc.js",
   "scripts": {
-    "test": "echo \"Error: no such things\" && exit 1"
+    "test": "echo \"Error: no such thing\" && exit 1"
   },
-  "bin": {
-    "ixirc": "./bin/ixirc"
-  },
+  "bin": "./bin/ixirc",
   "author": {
     "name": "Magnus Hellman",
     "email": "magnus.hellman@gmail.com",
