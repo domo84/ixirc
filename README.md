@@ -12,7 +12,7 @@ This package uses `babel-node`.
 
 ## Installation
 
-```npm install domolicious/ixirc`
+```npm install domolicious/ixirc```
 
 ## Usage
 
