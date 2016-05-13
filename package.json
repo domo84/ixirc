@@ -15,7 +15,7 @@
   "repository": "domolicious/ixirc",
   "readme": "README.md",
   "license": "SEE LICENSE IN LICENSE",
-  "devDependencies": {
+  "dependencies": {
     "babel-plugin-transform-strict-mode": "^6.5.2",
     "babel-preset-stage-2": "^6.5.0",
     "cliff": "^0.1.10",
