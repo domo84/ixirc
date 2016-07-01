@@ -4,15 +4,9 @@ Node CLI for [ixIRC](https://ixirc.com/). Let's you use [their API](https://ixir
 
 This project uses much new and bleeding edge ES functionality.
 
-## Requirements
-
-This package uses `babel-node`.
-
-```sudo npm install -g babel-node```
-
 ## Installation
 
-```npm install domolicious/ixirc```
+```sudo npm install -g domolicious/ixirc```
 
 ## Usage
 
