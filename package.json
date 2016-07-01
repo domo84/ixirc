@@ -1,13 +1,14 @@
 {
   "name": "ixirc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Node module for ixIRC API. Both lib and CLI",
-  "main": "lib/ixirc.js",
+  "main": "dist/ixirc.js",
   "scripts": {
+    "dist": "babel src -d dist",
     "test": "echo \"Error: no such thing\" && exit 1",
     "postinstall": "bash scripts/postinstall.sh"
   },
-  "bin": "./bin/cli.js",
+  "bin": "./dist/cli.js",
   "author": {
     "name": "Magnus Hellman",
     "email": "magnus.hellman@gmail.com",
@@ -22,5 +23,8 @@
     "babel-preset-stage-2": "^6.5.0",
     "cliff": "^0.1.10",
     "minimist": "^1.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.10.1"
   }
 }
