@@ -44,3 +44,4 @@ class ixIRC {
 }
 
 module.exports = ixIRC;
+//# sourceMappingURL=ixirc.js.map

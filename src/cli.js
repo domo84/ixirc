@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const cliff = require("cliff");
 const minimist = require("minimist")(process.argv.slice(2));
 const ixIRC = require("./ixirc");
