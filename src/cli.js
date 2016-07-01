@@ -1,6 +1,6 @@
 const cliff = require("cliff");
 const minimist = require("minimist")(process.argv.slice(2));
-const ixIRC = require("../lib/ixirc");
+const ixIRC = require("./ixirc");
 
 (async function()
 {
