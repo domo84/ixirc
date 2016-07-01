@@ -5,8 +5,7 @@
   "main": "dist/ixirc.js",
   "scripts": {
     "dist": "babel src -d dist",
-    "test": "echo \"Error: no such thing\" && exit 1",
-    "postinstall": "bash scripts/postinstall.sh"
+    "test": "echo \"Error: no such thing\" && exit 1"
   },
   "bin": "./dist/cli.js",
   "author": {
