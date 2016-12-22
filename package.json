@@ -4,7 +4,7 @@
   "description": "Node module for ixIRC API. Both lib and CLI",
   "main": "dist/ixirc.js",
   "scripts": {
-    "dist": "babel src -d dist",
+    "dist": "babel src -d dist && chmod u+x dist/cli.js",
     "test": "echo \"Error: no such thing\" && exit 1"
   },
   "bin": "./dist/cli.js",

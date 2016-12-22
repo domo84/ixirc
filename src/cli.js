@@ -3,6 +3,7 @@
 const cliff = require("cliff");
 const minimist = require("minimist")(process.argv.slice(2));
 const ixIRC = require("./ixirc");
+const fs = require("fs");
 
 (async function()
 {
@@ -23,6 +24,7 @@ const ixIRC = require("./ixirc");
 	{
 		let result = await client.search(args);
 		print_result(result);
+		save_result(result);
 	}
 	catch(e)
 	{
@@ -34,11 +36,13 @@ function print_result(data)
 {
 	let lines = [];
 
-	lines.push(["Name", "Network", "Channel", "User", "Pack", "Gets" ,"Size", "Posted", "Last Activity"]);
+	lines.push(["#", "Name", "Network", "Channel", "User", "Pack", "Gets" ,"Size", "Posted", "Last Activity"]);
 
+	let i = 0;
 	for(let result of data.results)
 	{
-		lines.push([result.name, result.naddr, result.cname, result.uname, result.n, result.gets, result.szf, result.agef, result.lastf]);
+		lines.push([i, result.name, result.naddr, result.cname, result.uname, result.n, result.gets, result.szf, result.agef, result.lastf]);
+		i++;
 	}
 
 	console.log(cliff.stringifyRows(lines));
@@ -55,4 +59,12 @@ function print_help()
 	console.log("");
 	console.log(cliff.stringifyRows(lines));
 	console.log("");
+}
+
+function save_result(data)
+{
+	fs.writeFile("/tmp/ixirc_result.json", JSON.stringify(data), (err) => {
+		if(err) throw err;
+		console.log("saved");
+	});
 }
