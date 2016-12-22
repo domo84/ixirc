@@ -23,8 +23,15 @@ const fs = require("fs");
 	try
 	{
 		let result = await client.search(args);
-		print_result(result);
-		save_result(result);
+		if(result.results)
+		{
+			print_result(result);
+			save_result(result);
+		}
+		else
+		{
+			console.log("No results");
+		}
 	}
 	catch(e)
 	{

@@ -23,8 +23,12 @@ _asyncToGenerator(function* () {
 
 	try {
 		let result = yield client.search(args);
-		print_result(result);
-		save_result(result);
+		if (result.results) {
+			print_result(result);
+			save_result(result);
+		} else {
+			console.log("No results");
+		}
 	} catch (e) {
 		console.error(`Unable to search: ${ e }`);
 	}
@@ -59,6 +63,5 @@ function print_help() {
 function save_result(data) {
 	fs.writeFile("/tmp/ixirc_result.json", JSON.stringify(data), err => {
 		if (err) throw err;
-		console.log("saved");
 	});
 }
