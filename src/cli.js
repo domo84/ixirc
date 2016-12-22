@@ -65,6 +65,5 @@ function save_result(data)
 {
 	fs.writeFile("/tmp/ixirc_result.json", JSON.stringify(data), (err) => {
 		if(err) throw err;
-		console.log("saved");
 	});
 }
